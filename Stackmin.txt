@@ -1,0 +1,60 @@
+import java.util.*;
+public class Mine {
+  
+	public static void main(String args[])
+	{
+		
+		Stackmin obj =new Stackmin();
+		obj.pushval(2);
+		obj.pushval(1);
+		obj.pushval(9);
+		obj.pushval(10);
+		
+		System.out.println(obj.popval());
+		
+	}	 
+}
+	
+class Stackmin extends Stack<Node>
+{
+	
+	public void pushval(int value)
+	{
+		int newmin = Math.min(value, min());
+		super.push(new Node(value,newmin));
+		
+		
+	}
+	public int min()
+	{
+		if(this.isEmpty())//this to check of the stack<Node> is empty or not
+		{
+			return(Integer.MAX_VALUE);
+		}
+		else
+		{
+			return(super.peek().min);
+		}
+		
+	}
+	
+	public int popval()
+	{
+		return(super.pop().min);
+	}
+}
+
+
+
+class Node //Only if you make this class static you will able to
+
+{
+	int value;
+	int min;
+	public Node(int value, int min)
+	{
+		this.value=value;
+		this.min=min;
+	}
+}
+

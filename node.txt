@@ -1,0 +1,10 @@
+installing nvm
+
+npm install -g nvmw
+To change the node version
+
+To download the version of node
+nvmw v8.9.1
+
+then to use
+ nvmw v8.9.1
